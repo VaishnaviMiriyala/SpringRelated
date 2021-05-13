@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	 
+	 
+	 <bean id="student1" class="com.abc.beans.Student" autowire = "byType " scope = "prototype" init-method="doInit" destroy-method="doEnd">
+	 	<property name="Id" value="102"></property>
+	 	<property name="name" value="Vaishnavi"></property>
+	 	<property name="age" value="21"></property>
+	 	<property name="marks" value="100"></property>
+	 	<property name="course" ref="course1"></property>
+	 	<property name = "examList">
+         <list>
+            <ref bean = "exam1"/>
+            <ref bean = "exam2"/>
+         </list>
+      </property>
+	 </bean>
+	 
+	 <bean id="course1" class="com.abc.beans.Courses">
+	 	<property name="course_id" value="11"></property>
+	 	<property name="coursename" value="Java"></property>
+	 </bean>
+	 
+	 <bean id="exam1" class="com.abc.beans.Examination">
+	 	<property name="examId" value="11"></property>
+	 	<property name="examName" value="Java"></property>
+	 </bean>
+	 
+	 <bean id="exam2" class="com.abc.beans.Examination">
+	 	<property name="examId" value="12"></property>
+	 	<property name="examName" value="SQL"></property>
+	 </bean>
+	 
+	 
+</beans>
